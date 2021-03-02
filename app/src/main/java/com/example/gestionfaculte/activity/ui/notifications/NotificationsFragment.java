@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.gestionfaculte.activity.R;
+import com.example.gestionfaculte.R;
 
 public class NotificationsFragment extends Fragment {
 
