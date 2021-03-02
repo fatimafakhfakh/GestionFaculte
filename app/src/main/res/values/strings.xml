@@ -4,4 +4,36 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+
+
+
+    <string name="insciption">Inscription</string>
+    <string name="compte_perdu">Compte perdu</string>
+    <string name="tunisia_export">Tunisia Export</string>
+    <string name="navigation_drawer_open">Ouvrir</string>
+    <string name="navigation_drawer_close">Fermer</string>
+    <string name="logo">logo cepex</string>
+    <string name="bus">bus screen</string>
+    <string name="second_activity">second Activity</string>
+    <string name="email">Entrer votre email</string>
+    <string name="identifiant">Entrer votre identifiant</string>
+    <string name="mot_de_passe">Entrer votre mot de passe</string>
+    <string name="connexion">Connexion</string>
+    <string name="garder_ma_session_active">Garder ma session active</string>
+    <string name="email_">Email</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="creation_de_compte">Création de compte</string>
+    <string name="vous_navez_pas_de_compte">Vous n\'avez pas de compte ?</string>
+    <string name="suivant">Suivant</string>
+    <string name="obilgatoire">Obligatoire</string>
+    <string name="confirmer_votre_mdp">Confirmer votre mot de passe</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

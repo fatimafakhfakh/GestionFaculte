@@ -32,6 +32,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation files('libs\\org.apache.http.legacy.jar')
     //implementation files('libs\\mpandroidchartlibrary-2-1-0.jar')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
