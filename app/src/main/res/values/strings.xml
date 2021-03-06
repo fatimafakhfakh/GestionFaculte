@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">GestionFaculte</string>
+    <string name="app_name"> Ma Faculté </string>
     <string name="title_activity_home">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Mes demandes</string>
+    <string name="title_dashboard">Ajout demande</string>
+    <string name="title_notifications">Compte</string>
+
 
 
     <string name="insciption">Inscription</string>

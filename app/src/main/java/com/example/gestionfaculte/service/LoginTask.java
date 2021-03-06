@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -28,21 +29,25 @@ public class LoginTask extends AsyncTask<Void, Void, JSONObject> {
     Activity activity;
     String login;
     String password;
+    Button btn_login;
 
 
-    public LoginTask(Activity activity, String login, String password) {
+    public LoginTask(Activity activity, String login, String password, Button btn_login) {
         this.activity = activity;
 
         this.login = login;
         this.password = password;
+        this.btn_login = btn_login;
 
     }
-
 
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+
+        btn_login.setEnabled(false);
+        btn_login.setText("connexion en cours ...");
     }
 
     @Override
@@ -55,8 +60,8 @@ public class LoginTask extends AsyncTask<Void, Void, JSONObject> {
         Log.e("url", url);
         ArrayList<NameValuePair> parametre = new ArrayList<NameValuePair>();
 
-        Log.e      ("param_task",""+login+"  *  "+password)    ;
-        
+        Log.e("param_task", "" + login + "  *  " + password);
+
         parametre.add(new BasicNameValuePair("txt_login", login + ""));
         parametre.add(new BasicNameValuePair("txt_password", password + ""));
 
@@ -73,13 +78,16 @@ public class LoginTask extends AsyncTask<Void, Void, JSONObject> {
     protected void onPostExecute(JSONObject json) {
 
 
-        try {
+        btn_login.setEnabled(true);
 
+
+        try {
 
 
             boolean etat = json.getBoolean("type");
             if (etat) {
 
+                btn_login.setText("connexion avec succèes");
                 Log.e("type", etat + "");
 
 
@@ -91,50 +99,40 @@ public class LoginTask extends AsyncTask<Void, Void, JSONObject> {
 
                 ///data  of  user
 
-                  int  id  = jo.getInt("id")       ;
+                int id = jo.getInt("id");
                 String cin = jo.getString("cin");
                 String nom = jo.getString("nom");
                 String prenom = jo.getString("prenom");
-                String fonction = jo.getString("fonction");
-                String email = jo.getString("email");
-                String num_tel = jo.getString("num_tel");
-                String adresse = jo.getString("adresse");
-                String code_postal = jo.getString("codepostal");
-                String ville = jo.getString("ville");
+                int id_etablissement = jo.getInt("id_etablissement");
+                String login = jo.getString("login");
+                String mot_de_passe = jo.getString("mot_de_passe");
+                int autorisation = jo.getInt("autorisation");
 
 
-
-                      // sauvegard session 
+                // sauvegard session
                 SharedPreferences prefs = activity.getSharedPreferences(Server.PREF_SESSION, Context.MODE_PRIVATE);
                 SharedPreferences.Editor edt = prefs.edit();
 
                 edt.putBoolean("etat_user", true);
+
+                edt.putInt("id", id);
                 edt.putString("cin", cin);
                 edt.putString("nom", nom);
                 edt.putString("prenom", prenom);
-                edt.putString("fonction", fonction);
-                edt.putString("adresse", adresse);
-                edt.putString("code_postal", code_postal);
-                edt.putString("ville", ville);
-
+                edt.putInt("id_etablissement", id_etablissement);
+                edt.putString("login", login);
+                edt.putInt("autorisation", autorisation);
 
                 edt.commit();
 
-
-
-
-                    Intent  toAnnuaire  = new Intent(activity  , HomeActivity.class)       ;
-                    activity.startActivity(toAnnuaire);
-                    activity.finish();
-
-
-
-
-
-
+                Intent toAnnuaire = new Intent(activity, HomeActivity.class);
+                activity.startActivity(toAnnuaire);
+                activity.finish();
 
 
             } else {
+
+                btn_login.setText("Ré-éssayer");
                 Toast.makeText(activity, " Valider votre login et mot de passe ", Toast.LENGTH_SHORT).show();
 
 

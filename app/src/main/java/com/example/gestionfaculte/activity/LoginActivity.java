@@ -30,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView btn1,btn_ins;
 
 
+    TextView btn_inscription ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         ed_password = findViewById(R.id.ed_password);
 
 
-
+        btn_inscription = findViewById(R.id.btn_ins);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.e      ("param",""+login+"  *  "+mot_de_passe)    ;
 
 
-                LoginTask loginTask = new LoginTask(LoginActivity.this, login, mot_de_passe);
+                LoginTask loginTask = new LoginTask(LoginActivity.this, login, mot_de_passe, btn_login);
                 loginTask.execute();
 
             }
@@ -96,10 +98,9 @@ public class LoginActivity extends AppCompatActivity {
                     .setIcon(android.R.drawable.ic_dialog_alert)
 //set title
                     .setTitle("alert")
-//set message
+
                     .setMessage("champ cin est vide")
-//set positive button
-//set negative button
+
                     .setNegativeButton("okey", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -112,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         } else {
             ed_login.setError(null);
-            ed_login.setEnabled(false);
+
             return true;
         }
     }
@@ -143,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         } else {
             ed_password.setError(null);
-            ed_password.setEnabled(false);
+
             return true;
         }
     }
